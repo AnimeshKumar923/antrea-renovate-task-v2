@@ -110,7 +110,7 @@ In the development of this feature some ideas which can help are:
 
 - A schedule to check for the vulnerabilities in the dependencies and update them.
 - Maybe a notification system to alert the maintainers when a vulnerability is found (in the Slack channel, via GH notifications or e-mail as deemed fit).
-- `[ignorePaths](https://docs.renovatebot.com/configuration-options/#ignorepaths)` can be used to ignore the folders and files that are not relevant for vulnerability scanning.
+- [ignorePaths](https://docs.renovatebot.com/configuration-options/#ignorepaths) can be used to ignore the folders and files that are not relevant for vulnerability scanning.
 - Usage of semantic commit for consistent and clear commit messages.
 - Define more active branches _(like `release-2.2`, `release-2.1`, as mentioned in the [original issue](https://github.com/antrea-io/antrea/issues/6934))_ on which we can scan for vulnerabilities.
 
