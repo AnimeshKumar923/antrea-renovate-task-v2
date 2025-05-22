@@ -6,6 +6,12 @@ import (
 )
 
 func main() {
-	fmt.Println("Demonstrate vulnerable dependency usage.")
-	_ = ssh.ClientConfig{}
+	fmt.Println("Demo using golang.org/x/crypto")
+_ = &ssh.ClientConfig{
+		User: "test",
+		Auth: []ssh.AuthMethod{
+			ssh.Password("dummy"),
+		},
+		HostKeyCallback: ssh.InsecureIgnoreHostKey(),
+	}
 }
