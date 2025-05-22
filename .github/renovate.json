@@ -12,7 +12,10 @@
     {
       "matchManagers": ["gomod"],
       "labels": ["area/security", "dependencies"],
-      "automerge": false
+      "automerge": false,
+      "commitMessageAction": "chore",
+      "commitMessageTopic": "bump {{depName}}",
+      "commitMessageExtra": "to {{newVersion}}"
     }
   ]
 }
