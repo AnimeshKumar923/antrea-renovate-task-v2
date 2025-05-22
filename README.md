@@ -26,24 +26,24 @@ This repository is for demonstrating the task given for LFX mentorship for [Antr
   ```
 4. Check the output:
   ```bash
-  Generated UUID: 62a514a4-ac14-47d8-b8d2-6ef4a8c5282f
+  Demo using golang.org/x/crypto
   ```
-[upload output image from GH website]
-> ![NOTE]
-> your output may differ from the above UUID, as it is generated randomly.
+
+![Screenshot from 2025-05-22 13-30-53](https://github.com/user-attachments/assets/9a9ed336-00ba-4207-855b-9315253afaec)
+
 
 ## Vulnerability
 ### Description
 The SSH transport protocol with certain OpenSSH extensions, found in OpenSSH before 9.6 and other products, allows remote attackers to bypass integrity checks such that some packets are omitted (from the extension negotiation message), and a client and server may consequently end up with a connection for which some security features have been downgraded or disabled, aka a Terrapin attack. _(Source: CVE-2023-48795)_
 
 ### Impact 
-Predictable UUIDs can lead to security issues, especially if UUIDs are used in security-sensitive contexts.
+By weakening the SSH session's security, sensitive data transmitted during the session could be exposed or modified.
 
 ### Vulnerability Metrics
-Vector:  CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N
-Base Score:  5.9 (MEDIUM)
-Attack Vector:  Network
-Attack Complexity:  High
+- Vector:  CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N
+- Base Score:  5.9 (MEDIUM)
+- Attack Vector:  Network
+- Attack Complexity:  High
 > [!TIP]
 > Read more about the vulnerability [here](https://nvd.nist.gov/vuln/detail/cve-2023-48795).
 
@@ -73,7 +73,7 @@ Attack Complexity:  High
   ]
 }
 ```
-This config:
+Config TLDR (kind of):
 - Enables vulnerability alerts via GitHub Security Advisories.
 
 - Prevents auto-merging of Go deps.
@@ -84,17 +84,18 @@ This config:
 
 - Works specifically and only on the main branch (more can be added by extending `baseBranches` or `matchBaseBranches` depending upon our use-cases).
 
-- Pulls assignees from CODEOWNERS to keep responsibilities clear.
+- Pulls assignees from `CODEOWNERS` to keep responsibilities clear.
 
 ### Bot Workflow
-  1. Renovate Bot Scans Dependencies: It checks for known vulnerabilities in your dependencies using sources like GitHub Security Advisories, etc.
+  1. **Renovate Bot Scans Dependencies**: It checks for known vulnerabilities in your dependencies using sources like GitHub Security Advisories, etc.
 
-  2. PR Creation: Upon detecting a vulnerability, Renovate Bot automatically creates a PR to update the affected dependency to a secure version.
+  2. **PR Creation**: Upon detecting a vulnerability, Renovate Bot automatically creates a PR to update the affected dependency to a secure version.
 
-  3. Review and Merge: You can review the PR, which includes details about the vulnerability, and merge it to apply the fix.
+  3. **Review and Merge**: You can review the PR, which includes details about the vulnerability, and merge it to apply the fix.
 
 ### Renovate Configuration (on website)
-[insert screenshot of settings page]
+![renovate-website-settings](https://github.com/user-attachments/assets/23ff4e52-cdb3-4fa6-a3bf-741045c920f2)
+
 
 ### Renovate Bot PR
 - The PR created by Renovate Bot will include details about the vulnerability and affected dependency. It will also include a link to the relevant CVE report for further information.
@@ -114,7 +115,7 @@ In the development of this feature some ideas which can help are:
 - Define more active branches _(like `release-2.2`, `release-2.1`, as mentioned in the [original issue](https://github.com/antrea-io/antrea/issues/6934))_ on which we can scan for vulnerabilities.
 
 > [!TIP]
-> More practices can be adopted by analyzing projects that use Renovate bot and have a good security policy.
+> More practices can be adopted by analyzing projects that use Renovate bot and have a good security policy. (like cilium)
 
 ## References
 - [VulnerabilityAlerts Docs](https://docs.renovatebot.com/configuration-options/#vulnerabilityalerts)
