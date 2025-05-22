@@ -1,0 +1,18 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base"],
+  "vulnerabilityAlerts": {
+    "enabled": true
+  },
+  "assignAutomerge": true,
+  "assigneesFromCodeOwners": true,
+  "postUpdateOptions": ["gomodTidy"],
+  "baseBranches": ["main"],
+  "packageRules": [
+    {
+      "matchManagers": ["gomod"],
+      "labels": ["area/security", "dependencies"],
+      "automerge": false
+    }
+  ]
+}
