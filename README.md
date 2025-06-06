@@ -1,3 +1,5 @@
+# Archived. The project has served it's purpose.
+
 # Prerequisite task for Antrea (LFX mentorship, Term 2, 2025)
 
 This repository is for demonstrating the task given for LFX mentorship for [Antrea project](https://github.com/antrea-io/antrea).
